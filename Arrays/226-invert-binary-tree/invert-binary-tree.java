@@ -15,20 +15,15 @@
  */
 class Solution {
     public TreeNode invertTree(TreeNode root) {
-        // Base case: if the tree is empty, return null
-        if (root == null) {
+        if(root == null){
             return null;
         }
-        
-        // Swap the left and right children
-        TreeNode temp = root.left;
+        TreeNode temp=root.left;
         root.left = root.right;
-        root.right = temp;
-        
-        // Recursively invert the left and right subtrees
+        root.right=temp;
+
         invertTree(root.left);
         invertTree(root.right);
-        
         return root;
     }
 }
